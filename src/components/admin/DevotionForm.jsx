@@ -103,14 +103,14 @@ const DevotionForm = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white rounded-lg shadow-md border border-gray-200 p-6 md:p-8"
+      className="bg-white rounded-3xl shadow-xl border-0 p-4 md:p-8 relative overflow-hidden w-full max-w-full"
     >
-      <div className="space-y-6">
+      <div className="space-y-6 md:space-y-8 relative z-10 w-full">
         {/* Title */}
         <div>
           <label
             htmlFor="title"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-bold text-gray-700 mb-2 ml-1"
           >
             Title <span className="text-red-500">*</span>
           </label>
@@ -120,13 +120,18 @@ const DevotionForm = ({
             type="text"
             value={formData.title}
             onChange={handleChange}
-            className={`block w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-smooth ${
-              errors.title ? "border-red-500" : "border-gray-300"
+            className={`block w-full px-5 py-3.5 bg-gray-50 border-1 border-gray-400 rounded-xl focus:bg-white focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all font-medium text-lg ${
+              errors.title
+                ? "border-red-100 focus:border-red-500"
+                : "border-gray-200 focus:border-indigo-500"
             }`}
             placeholder="Enter devotion title"
           />
           {errors.title && (
-            <p className="mt-1 text-sm text-red-600">{errors.title}</p>
+            <p className="mt-2 text-sm text-red-500 font-medium ml-1 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+              {errors.title}
+            </p>
           )}
         </div>
 
@@ -134,7 +139,7 @@ const DevotionForm = ({
         <div>
           <label
             htmlFor="bibleVerse"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-bold text-gray-700 mb-2 ml-1"
           >
             Bible Verse Reference <span className="text-red-500">*</span>
           </label>
@@ -144,13 +149,18 @@ const DevotionForm = ({
             type="text"
             value={formData.bibleVerse}
             onChange={handleChange}
-            className={`block w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-smooth ${
-              errors.bibleVerse ? "border-red-500" : "border-gray-300"
+            className={`block w-full px-5 py-3.5 bg-gray-50 border-1 border-gray-400 rounded-xl focus:bg-white focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all font-medium ${
+              errors.bibleVerse
+                ? "border-red-100 focus:border-red-500"
+                : "border-gray-200 focus:border-indigo-500"
             }`}
             placeholder="e.g., John 3:16"
           />
           {errors.bibleVerse && (
-            <p className="mt-1 text-sm text-red-600">{errors.bibleVerse}</p>
+            <p className="mt-2 text-sm text-red-500 font-medium ml-1 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+              {errors.bibleVerse}
+            </p>
           )}
         </div>
 
@@ -158,7 +168,7 @@ const DevotionForm = ({
         <div>
           <label
             htmlFor="content"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-bold text-gray-700 mb-2 ml-1"
           >
             Content <span className="text-red-500">*</span>
           </label>
@@ -168,15 +178,20 @@ const DevotionForm = ({
             value={formData.content}
             onChange={handleChange}
             rows={12}
-            className={`block w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-smooth ${
-              errors.content ? "border-red-500" : "border-gray-300"
+            className={`block w-full px-5 py-4 bg-gray-50 border-1 border-gray-400 rounded-xl focus:bg-white focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all leading-relaxed ${
+              errors.content
+                ? "border-red-100 focus:border-red-500"
+                : "border-gray-200 focus:border-indigo-500"
             }`}
             placeholder="Enter the full devotion content..."
           />
           {errors.content && (
-            <p className="mt-1 text-sm text-red-600">{errors.content}</p>
+            <p className="mt-2 text-sm text-red-500 font-medium ml-1 flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+              {errors.content}
+            </p>
           )}
-          <p className="mt-1 text-xs text-gray-500">
+          <p className="mt-2 text-xs font-medium text-gray-400 ml-1 uppercase tracking-wider">
             Separate paragraphs with line breaks
           </p>
         </div>
@@ -185,7 +200,7 @@ const DevotionForm = ({
         <div>
           <label
             htmlFor="excerpt"
-            className="block text-sm font-medium text-gray-700 mb-2"
+            className="block text-sm font-bold text-gray-700 mb-2 ml-1"
           >
             Excerpt (Optional)
           </label>
@@ -195,66 +210,114 @@ const DevotionForm = ({
             value={formData.excerpt}
             onChange={handleChange}
             rows={3}
-            className="block w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-smooth"
-            placeholder="Brief summary for preview (auto-generated if left empty)"
+            className="block w-full px-5 py-3.5 bg-gray-50 border-1 border-gray-400 rounded-xl focus:bg-white focus:outline-none focus:ring-4 focus:ring-indigo-500/10 focus:border-indigo-500 transition-all"
+            placeholder="Brief summary for preview (will be auto-generated if left empty)"
           />
-          <p className="mt-1 text-xs text-gray-500">
+          <p className="mt-2 text-xs font-medium text-gray-400 ml-1 uppercase tracking-wider">
             {formData.excerpt.length}/150 characters
           </p>
         </div>
 
-        {/* Publish Date */}
-        <div>
-          <label
-            htmlFor="publishDate"
-            className="block text-sm font-medium text-gray-700 mb-2"
-          >
-            Publish Date <span className="text-red-500">*</span>
-          </label>
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-              <Calendar size={18} className="text-gray-400" />
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {/* Publish Date */}
+          <div>
+            <label
+              htmlFor="publishDate"
+              className="block text-sm font-bold text-gray-700 mb-2 ml-1"
+            >
+              Publish Date <span className="text-red-500">*</span>
+            </label>
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <Calendar size={20} className="text-gray-400" />
+              </div>
+              <input
+                id="publishDate"
+                name="publishDate"
+                type="date"
+                value={formData.publishDate}
+                onChange={handleChange}
+                className={`block w-full pl-11 pr-5 py-3.5 bg-gray-50 border-1 border-gray-400 rounded-xl focus:bg-white focus:outline-none focus:ring-4 focus:ring-indigo-500/10 transition-all font-medium ${
+                  errors.publishDate
+                    ? "border-red-100 focus:border-red-500"
+                    : "border-gray-200 focus:border-indigo-500"
+                }`}
+              />
             </div>
-            <input
-              id="publishDate"
-              name="publishDate"
-              type="date"
-              value={formData.publishDate}
-              onChange={handleChange}
-              className={`block w-full pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary transition-smooth ${
-                errors.publishDate ? "border-red-500" : "border-gray-300"
-              }`}
-            />
+            {errors.publishDate && (
+              <p className="mt-2 text-sm text-red-500 font-medium ml-1 flex items-center gap-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
+                {errors.publishDate}
+              </p>
+            )}
           </div>
-          {errors.publishDate && (
-            <p className="mt-1 text-sm text-red-600">{errors.publishDate}</p>
-          )}
-        </div>
 
-        {/* Publish Toggle */}
-        <div className="flex items-center gap-3 p-4 bg-gray-50 rounded-lg">
-          <input
-            id="isPublished"
-            name="isPublished"
-            type="checkbox"
-            checked={formData.isPublished}
-            onChange={handleChange}
-            className="w-5 h-5 text-primary border-gray-300 rounded focus:ring-2 focus:ring-primary cursor-pointer"
-          />
-          <label
-            htmlFor="isPublished"
-            className="text-sm font-medium text-gray-700 cursor-pointer"
-          >
-            Publish immediately (visible to users)
-          </label>
+          {/* Publish Toggle */}
+          <div>
+            <label className="block text-sm font-bold text-gray-700 mb-2 ml-1">
+              Visibility Status
+            </label>
+            <div
+              className={`flex items-center gap-4 p-3.5 rounded-xl border-2 transition-all cursor-pointer ${
+                formData.isPublished
+                  ? "bg-green-50 border-green-200"
+                  : "bg-gray-50 border-transparent hover:bg-gray-100"
+              }`}
+              onClick={() =>
+                setFormData((prev) => ({
+                  ...prev,
+                  isPublished: !prev.isPublished,
+                }))
+              }
+            >
+              <div
+                className={`w-6 h-6 rounded-md flex items-center justify-center border-1 border-gray-400 transition-colors ${
+                  formData.isPublished
+                    ? "bg-green-500 border-green-500"
+                    : "border-gray-300 bg-white"
+                }`}
+              >
+                {formData.isPublished && (
+                  <Save size={14} className="text-white" />
+                )}
+              </div>
+
+              <div>
+                <span
+                  className={`block text-sm font-bold ${
+                    formData.isPublished ? "text-green-800" : "text-gray-700"
+                  }`}
+                >
+                  {formData.isPublished
+                    ? "Published Immediately"
+                    : "Save as Draft"}
+                </span>
+                <span className="text-xs text-gray-500">
+                  {formData.isPublished
+                    ? "Visible to all users"
+                    : "Hidden from public view"}
+                </span>
+              </div>
+
+              {/* Hidden Checkbox for form logic compatibility if needed */}
+              <input
+                id="isPublished"
+                name="isPublished"
+                type="checkbox"
+                checked={formData.isPublished}
+                onChange={handleChange}
+                className="hidden"
+              />
+            </div>
+          </div>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-4 pt-6 border-t border-gray-200">
+        <div className="flex items-center gap-4 pt-8 mt-4 border-t border-gray-400">
           <button
             type="submit"
             disabled={loading}
-            className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:scale-105 active:scale-95 transition-smooth focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+            className="flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-xl font-bold shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
           >
             {loading ? (
               <>
@@ -263,7 +326,7 @@ const DevotionForm = ({
               </>
             ) : (
               <>
-                <Save size={18} />
+                <Save size={20} />
                 <span>{devotion ? "Update" : "Create"} Devotion</span>
               </>
             )}
@@ -273,9 +336,9 @@ const DevotionForm = ({
             type="button"
             onClick={onCancel}
             disabled={loading}
-            className="flex items-center gap-2 px-6 py-3 border-2 border-gray-200 text-gray-700 rounded-lg font-medium hover:border-gray-300 transition-smooth focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+            className="flex items-center gap-2 px-8 py-4 bg-white text-gray-600 rounded-xl font-bold hover:bg-gray-50 hover:text-indigo-600 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <X size={18} />
+            <X size={20} />
             <span>Cancel</span>
           </button>
         </div>

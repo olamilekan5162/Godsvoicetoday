@@ -11,10 +11,15 @@
     --color-secondary: 16 185 129; /* #10B981 */
     --color-secondary-light: 52 211 153; /* #34D399 */
 
+    /* Accent Colors - Warm tones */
+    --color-accent: 251 146 60; /* #FB923C - Orange */
+    --color-accent-light: 253 186 116; /* #FDBA74 */
+
     /* Neutral Colors */
     --color-gray-50: 249 250 251; /* #F9FAFB */
     --color-gray-100: 243 244 246; /* #F3F4F6 */
     --color-gray-200: 229 231 235; /* #E5E7EB */
+    --color-gray-300: 209 213 219; /* #D1D5DB */
     --color-gray-700: 55 65 81; /* #374151 */
     --color-gray-900: 17 24 39; /* #111827 */
   }
@@ -60,11 +65,65 @@
     background-color: rgb(var(--color-secondary));
   }
 
+  .text-accent {
+    color: rgb(var(--color-accent));
+  }
+
+  .bg-accent {
+    background-color: rgb(var(--color-accent));
+  }
+
   .bg-gradient-subtle {
     background: linear-gradient(to bottom, #ffffff, rgb(var(--color-gray-50)));
   }
 
+  .bg-gradient-hero {
+    background: linear-gradient(
+      135deg,
+      rgb(var(--color-primary)) 0%,
+      rgb(var(--color-primary-dark)) 100%
+    );
+  }
+
+  .card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05),
+      0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  }
+
+  .card-shadow-hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08),
+      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
   .transition-smooth {
     @apply transition-all duration-300 ease-in-out;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes pulse-slow {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 20s ease-in-out infinite;
   }
 }

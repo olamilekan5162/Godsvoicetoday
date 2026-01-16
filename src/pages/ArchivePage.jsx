@@ -33,16 +33,29 @@ const ArchivePage = () => {
   return (
     <Layout>
       {/* Page Header */}
-      <section className="bg-gradient-to-r from-indigo-600 to-indigo-500 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-full mb-4">
-            <BookOpen size={32} />
+      <section className="relative min-h-[400px] flex items-center justify-center text-center px-4 overflow-hidden">
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/assets/hero-bg.png"
+            alt="Spiritual background"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-indigo-900/90 via-purple-900/80 to-indigo-900/90 backdrop-blur-[2px]"></div>
+        </div>
+
+        <div className="relative z-10 max-w-4xl mx-auto space-y-6 py-12">
+          <div className="inline-flex p-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-xl mb-2">
+            <BookOpen size={32} className="text-white drop-shadow-md" />
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+
+          <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight drop-shadow-xl">
             Devotion Archive
           </h1>
-          <p className="text-xl text-indigo-100">
-            Browse past devotions and revisit God's word
+
+          <p className="text-lg md:text-xl text-indigo-100 max-w-2xl mx-auto leading-relaxed font-light drop-shadow-md">
+            Browse past devotions and revisit God's word. A treasury of
+            spiritual wisdom at your fingertips.
           </p>
         </div>
       </section>

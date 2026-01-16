@@ -70,10 +70,10 @@ const AdminDevotionFormPage = () => {
         {/* Back Button */}
         <button
           onClick={() => navigate("/admin/dashboard")}
-          className="inline-flex items-center gap-2 text-primary hover:text-primary-dark transition-smooth mb-6 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 rounded-lg px-2 py-1"
+          className="inline-flex items-center gap-2 text-gray-500 hover:text-indigo-600 transition-colors mb-8 font-medium hover:bg-indigo-50 px-4 py-2 rounded-xl"
         >
           <ArrowLeft size={20} />
-          <span className="font-medium">Back to Dashboard</span>
+          <span>Back to Dashboard</span>
         </button>
 
         {/* Page Header */}

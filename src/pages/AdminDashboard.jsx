@@ -69,61 +69,64 @@ const AdminDashboard = () => {
         </div>
 
         {/* Statistics Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
-            <div className="flex items-center justify-between">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          <div className="bg-white rounded-2xl shadow-lg border-0 p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-indigo-50 rounded-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+            <div className="relative z-10 flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 mb-1">
+                <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-1">
                   Total Devotions
                 </p>
-                <p className="text-3xl font-bold text-gray-900">
+                <p className="text-4xl font-bold text-gray-900 mt-2">
                   {totalDevotions}
                 </p>
               </div>
-              <div className="p-3 bg-indigo-100 rounded-lg">
-                <BookOpen size={24} className="text-primary" />
+              <div className="p-4 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl shadow-md text-white">
+                <BookOpen size={24} />
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
-            <div className="flex items-center justify-between">
+          <div className="bg-white rounded-2xl shadow-lg border-0 p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-green-50 rounded-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+            <div className="relative z-10 flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 mb-1">
+                <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-1">
                   Published
                 </p>
-                <p className="text-3xl font-bold text-green-600">
+                <p className="text-4xl font-bold text-gray-900 mt-2">
                   {publishedCount}
                 </p>
               </div>
-              <div className="p-3 bg-green-100 rounded-lg">
-                <Eye size={24} className="text-green-600" />
+              <div className="p-4 bg-gradient-to-br from-green-500 to-emerald-600 rounded-xl shadow-md text-white">
+                <Eye size={24} />
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow-md border border-gray-200 p-6">
-            <div className="flex items-center justify-between">
+          <div className="bg-white rounded-2xl shadow-lg border-0 p-6 relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+            <div className="absolute top-0 right-0 w-24 h-24 bg-gray-100 rounded-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+            <div className="relative z-10 flex items-center justify-between">
               <div>
-                <p className="text-sm font-medium text-gray-600 mb-1">
+                <p className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-1">
                   Unpublished
                 </p>
-                <p className="text-3xl font-bold text-gray-600">
+                <p className="text-4xl font-bold text-gray-900 mt-2">
                   {unpublishedCount}
                 </p>
               </div>
-              <div className="p-3 bg-gray-100 rounded-lg">
-                <EyeOff size={24} className="text-gray-600" />
+              <div className="p-4 bg-gray-200 rounded-xl text-gray-600">
+                <EyeOff size={24} />
               </div>
             </div>
           </div>
         </div>
 
         {/* Create New Button */}
-        <div className="mb-6">
+        <div className="mb-8 flex justify-end">
           <button
             onClick={() => navigate("/admin/devotion/new")}
-            className="flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-medium hover:scale-105 active:scale-95 transition-smooth focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+            className="flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-bold shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
           >
             <PlusCircle size={20} />
             <span>Create New Devotion</span>

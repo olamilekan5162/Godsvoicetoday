@@ -17,32 +17,50 @@ const DevotionView = ({ devotion }) => {
 
   // Generate share URL
   const shareUrl = window.location.href;
-  const shareTitle = `${devotion.title} - Manna Daily`;
+  const shareTitle = `${devotion.title} - God's Voice Today`;
   const shareText = `${devotion.bibleVerse}\n\n${
     devotion.excerpt || devotion.content.substring(0, 150)
   }...`;
 
   return (
-    <article className="max-w-3xl mx-auto bg-white rounded-lg shadow-lg border border-gray-200 overflow-hidden">
+    <article className="max-w-3xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden">
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-indigo-600 to-indigo-500 p-8 text-white">
-        <div className="flex items-center gap-2 mb-4">
-          <Calendar size={20} />
-          <time
-            dateTime={format(devotionDate, "yyyy-MM-dd")}
-            className="text-sm font-medium opacity-90"
-          >
-            {format(devotionDate, "EEEE, MMMM d, yyyy")}
-          </time>
+      {/* Header Section */}
+      <div className="relative min-h-[300px] flex items-end p-8 md:p-12 overflow-hidden bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800">
+        {/* Background Image/Gradient */}
+        <div className="absolute inset-0 z-0">
+          {/* Abstract circles */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl -ml-20 -mb-20"></div>
         </div>
 
-        <h1 className="text-3xl md:text-4xl font-bold mb-4 leading-tight">
-          {devotion.title}
-        </h1>
+        <div className="relative z-10 w-full">
+          {/* Date Badge */}
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-white/10 backdrop-blur-md rounded-full text-indigo-100 text-sm font-medium mb-6 border border-white/10">
+            <Calendar size={14} />
+            <time dateTime={format(devotionDate, "yyyy-MM-dd")}>
+              {format(devotionDate, "EEEE, MMMM d, yyyy")}
+            </time>
+          </div>
 
-        <div className="flex items-start gap-2 bg-white/10 backdrop-blur-sm rounded-lg p-4">
-          <BookOpen size={20} className="mt-1 flex-shrink-0" />
-          <p className="text-lg font-medium">{devotion.bibleVerse}</p>
+          <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight drop-shadow-lg">
+            {devotion.title}
+          </h1>
+
+          <div className="flex items-start gap-4 p-5 bg-white/10 backdrop-blur-md rounded-xl border border-white/10">
+            <BookOpen
+              size={24}
+              className="text-indigo-200 mt-1 flex-shrink-0"
+            />
+            <div className="space-y-1">
+              <span className="text-xs uppercase tracking-wider text-indigo-200 font-semibold">
+                Scripture Focus
+              </span>
+              <p className="text-lg md:text-xl font-medium text-white italic">
+                "{devotion.bibleVerse}"
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -60,7 +78,7 @@ const DevotionView = ({ devotion }) => {
         </div>
 
         {/* Share Section */}
-        <div className="mt-12 pt-8 border-t border-gray-200">
+        <div className="mt-12 pt-8 border-t border-gray-100">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">
             Share this devotion
           </h3>

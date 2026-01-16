@@ -54,28 +54,32 @@ const ShareButtons = ({ title, text, url }) => {
       {/* Native Share Button */}
       <button
         onClick={handleShare}
-        className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:scale-105 active:scale-95 transition-smooth focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        className="flex items-center gap-2 px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full font-medium hover:shadow-lg hover:scale-105 active:scale-95 transition-all duration-300"
         aria-label="Share devotion"
       >
         <Share2 size={18} />
-        <span className="text-sm font-medium">Share</span>
+        <span>Share</span>
       </button>
 
       {/* Copy Link Button */}
       <button
         onClick={handleCopyLink}
-        className="flex items-center gap-2 px-4 py-2 border-2 border-gray-200 text-gray-700 rounded-lg hover:border-primary hover:text-primary transition-smooth focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+        className={`flex items-center gap-2 px-6 py-2.5 rounded-full font-medium transition-all duration-300 ${
+          copied
+            ? "bg-green-100 text-green-700 border border-green-200"
+            : "bg-gray-100 text-gray-700 border border-transparent hover:bg-gray-200 hover:shadow-md"
+        }`}
         aria-label="Copy link"
       >
         {copied ? (
           <>
-            <Check size={18} className="text-secondary" />
-            <span className="text-sm font-medium text-secondary">Copied!</span>
+            <Check size={18} />
+            <span>Copied!</span>
           </>
         ) : (
           <>
             <Copy size={18} />
-            <span className="text-sm font-medium">Copy Link</span>
+            <span>Copy Link</span>
           </>
         )}
       </button>
