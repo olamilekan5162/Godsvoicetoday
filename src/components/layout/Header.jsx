@@ -47,11 +47,15 @@ const Header = () => {
               <BookOpen size={22} className="text-white" />
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent">
-                God's Voice Today
+              <span className="text-sm sm:text-lg font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent leading-tight">
+                Zion Apostolic Missions Int'l <br className="sm:hidden" />
+                <span className="hidden sm:inline"> | </span>
+                <span className="hidden sm:block text-xs sm:text-base text-indigo-800">
+                  Anointed Lion Int'l
+                </span>
               </span>
-              <span className="text-xs text-gray-500 hidden sm:block">
-                Hear what God is saying
+              <span className="text-xs font-medium text-gray-500 uppercase tracking-widest">
+                God's Voice Today
               </span>
             </div>
           </Link>

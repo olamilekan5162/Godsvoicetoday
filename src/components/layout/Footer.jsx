@@ -10,10 +10,16 @@ const Footer = () => {
   return (
     <footer className="bg-gradient-subtle mt-auto pt-12 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-2">
           {/* Tagline */}
+          <h3 className="text-lg font-bold text-center bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent mb-1">
+            Zion Apostolic Missions Int'l <br />{" "}
+            <span className="text-sm text-gray-600">
+              (A.K.A Anointed Lion Int'l)
+            </span>
+          </h3>
           <p className="text-sm text-gray-600 italic">
-            "Hear what God is saying to you today"
+            "God's Voice Today - Hear what God is saying to you"
           </p>
 
           {/* Divider */}
