@@ -50,7 +50,7 @@ const Header = () => {
               <span className="text-sm sm:text-lg font-bold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent leading-tight">
                 Zion Apostolic Missions Int'l <br className="sm:hidden" />
                 <span className="hidden sm:inline"> | </span>
-                <span className="hidden sm:block text-xs sm:text-base text-indigo-800">
+                <span className="hidden sm:inline text-xs sm:text-base text-indigo-800">
                   Anointed Lion Int'l
                 </span>
               </span>

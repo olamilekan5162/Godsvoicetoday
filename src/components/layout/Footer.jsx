@@ -18,7 +18,7 @@ const Footer = () => {
               (A.K.A Anointed Lion Int'l)
             </span>
           </h3>
-          <p className="text-sm text-gray-600 italic">
+          <p className="text-xs sm:text-sm text-gray-600 italic">
             "God's Voice Today - Hear what God is saying to you"
           </p>
 
@@ -26,7 +26,7 @@ const Footer = () => {
           <div className="w-16 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
 
           {/* Copyright */}
-          <div className="flex items-center gap-2 text-sm text-gray-500">
+          <div className="flex items-center sm:gap-2 gap-1 text-sm text-gray-500">
             <span>© {currentYear} God's Voice Today</span>
             <span>•</span>
             <span className="flex items-center gap-1">
