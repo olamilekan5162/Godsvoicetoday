@@ -21,7 +21,7 @@ const ShareButtons = ({ title, text, url }) => {
       try {
         await navigator.share({
           title,
-          text: `${title}\n\n${text}\n`,
+          text: `${title}\n\n${text}\n\n`,
           url,
         });
       } catch (error) {
