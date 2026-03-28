@@ -17,7 +17,7 @@ const DevotionView = ({ devotion }) => {
 
   // Generate share URL
   const shareUrl = window.location.href;
-  const shareTitle = `${devotion.title} - God's Voice Today`;
+  const shareTitle = `${devotion.title}`;
   const shareText = `${devotion.bibleVerse}\n\n${
     devotion.excerpt || devotion.content.substring(0, 150)
   }...`;
